@@ -90,21 +90,21 @@ public class CadastroVeiculos {
         }
     }
 
-    // excluir (teste: colocar uma confirmação de exclusão)
+    // excluir (teste que não deu certo: colocar uma confirmação de exclusão)
     private static void excluirVeiculo() {
         System.out.print("Digite a placa do veículo a excluir: ");
         String placa = scanner.nextLine();
-        Veiculo paraRemover = null;
+        Veiculo excluir = null;
 
         for (Veiculo v : veiculos) {
             if (v.getPlaca().equalsIgnoreCase(placa)) {
-                paraRemover = v;
+                excluir = v;
                 break;
             }
         }
 
-        if (paraRemover != null) {
-            veiculos.remove(paraRemover);
+        if (excluir != null) {
+            veiculos.remove(excluir);
             System.out.println("Veículo removido!");
         } else {
             System.out.println("Placa não encontrada.");
@@ -128,7 +128,7 @@ public class CadastroVeiculos {
                     encontrado = true;
                 }
             }
-        } else if (tipo == 2) {
+        } if (tipo == 2) {
             System.out.print("Digite o modelo do veículo: ");
             String modelo = scanner.nextLine();
             for (Veiculo v : veiculos) {
@@ -137,6 +137,7 @@ public class CadastroVeiculos {
                     encontrado = true;
                 }
             }
+        // não funciona quando o usuário digita letra, só número
         } else {
             System.out.println("Opção inválida.");
         }
